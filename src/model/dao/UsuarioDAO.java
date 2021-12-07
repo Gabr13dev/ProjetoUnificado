@@ -42,6 +42,35 @@ public class UsuarioDAO {
         return check;
 
     }
+
+    public int getId(String login, String senha) {
+            
+            Connection con = ConnectionFactory.getConnection();
+            PreparedStatement stmt = null;
+            ResultSet rs = null;
+    
+            int id = 0;
+    
+            try {
+                senha = hashMd5(senha);
+                stmt = con.prepareStatement("SELECT id_usuario FROM usuario WHERE email_usuario = ? and senha_usuario = ?");
+                stmt.setString(1, login);
+                stmt.setString(2, senha);
+    
+                rs = stmt.executeQuery();
+    
+                if (rs.next()) {
+                    id = rs.getInt("id_usuario");
+                }
+    
+            } catch (SQLException ex) {
+                Logger.getLogger(UsuarioDAO.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                ConnectionFactory.closeConnection(con, stmt, rs);
+            }
+    
+            return id;
+    }
     
     private String hashMd5(String texto){
         try{

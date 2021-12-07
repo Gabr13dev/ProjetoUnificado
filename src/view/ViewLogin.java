@@ -6,9 +6,13 @@
 package view;
 
 import java.awt.event.KeyEvent;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.Date;
+
 import javax.swing.JOptionPane;
 import model.dao.UsuarioDAO;
-
 
 public class ViewLogin extends javax.swing.JFrame {
 
@@ -17,6 +21,8 @@ public class ViewLogin extends javax.swing.JFrame {
      */
     public ViewLogin() {
         initComponents();
+        txtLogin.setText("a@email.com");
+        txtSenha.setText("123");
     }
 
     /**
@@ -115,9 +121,11 @@ public class ViewLogin extends javax.swing.JFrame {
        UsuarioDAO dao = new UsuarioDAO();
        
        if(dao.checkLogin(txtLogin.getText(), txtSenha.getText())){
-           new ViewJTable().setVisible(true);
+           this.gravaSessao(dao.getId(txtLogin.getText(), txtSenha.getText()));
+           new ViewProjetos().setVisible(true);
            this.dispose();
        }else{
+           txtSenha.setText("");
            JOptionPane.showMessageDialog(null, "Senha incorreta!");
        }
 
@@ -168,6 +176,19 @@ public class ViewLogin extends javax.swing.JFrame {
             }
         });
     }
+    
+    private void gravaSessao(int idUser){
+            try{
+                FileWriter arq = new FileWriter("C:\\log\\session\\lastSession.txt");
+                PrintWriter gravarArq = new PrintWriter(arq);
+                gravarArq.printf("%s", idUser);
+                arq.close();
+                
+            }catch(IOException e){
+                JOptionPane.showMessageDialog(null, "Erro ao salvar sessão! \n" + e);
+            }
+        }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

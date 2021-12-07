@@ -5,10 +5,6 @@
  */
 package model.bean;
 
-/**
- *
- * @author Samuelson
- */
 public class Projeto {
     
     private int id;

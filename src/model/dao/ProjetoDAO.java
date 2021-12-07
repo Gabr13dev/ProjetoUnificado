@@ -86,7 +86,7 @@ public class ProjetoDAO {
         List<Projeto> projetos = new ArrayList<>();
 
         try {
-            stmt = con.prepareStatement("SELECT * FROM projeto WHERE descricao_projeto LIKE ?");
+            stmt = con.prepareStatement("SELECT * FROM projeto WHERE nome_projeto LIKE ?");
             stmt.setString(1, "%"+desc+"%");
             
             rs = stmt.executeQuery();
