@@ -19,6 +19,31 @@ import model.bean.Projeto;
 
 
 public class ProjetoDAO {
+    
+    public Projeto getById(int id){
+        Projeto resultProjeto = new Projeto();
+                
+        Connection con = ConnectionFactory.getConnection();
+        
+        PreparedStatement stmt = null;
+        
+        try{
+            stmt = con.prepareStatement("SELECT * FROM `projeto` WHERE id_projeto = ?;");
+            stmt.setInt(1, id);
+            ResultSet rs = stmt.executeQuery();
+            rs.next();
+            resultProjeto.setId(id);
+            resultProjeto.setNome(rs.getString("nome_projeto"));
+            resultProjeto.setDescricao(rs.getString("descricao_projeto"));
+            resultProjeto.setUsuarioDono(rs.getInt("usuario_proprietario"));
+            
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        } finally {
+            ConnectionFactory.closeConnection(con, stmt);
+        }
+        return resultProjeto;
+    }
 
     public void create(Projeto p) {
         

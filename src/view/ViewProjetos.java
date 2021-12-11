@@ -373,10 +373,11 @@ public class ViewProjetos extends javax.swing.JFrame {
 
     private void btnReqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReqActionPerformed
         if (jTProjetos.getSelectedRow() != -1) {
-            ViewRequisitos viewRequisitos = new ViewRequisitos();
+            ProjetoDAO proj = new ProjetoDAO();
+            ViewRequisitos viewRequisitos = new ViewRequisitos(proj.getById((int) jTProjetos.getValueAt(jTProjetos.getSelectedRow(), 0)));
             viewRequisitos.setVisible(true);
         }else{
-            JOptionPane.showMessageDialog(null, "Selecione um Projeto para requisitar.");
+            JOptionPane.showMessageDialog(null, "Selecione um Projeto para ver os requisitos.");
         }
     }//GEN-LAST:event_btnReqActionPerformed
 

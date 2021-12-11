@@ -3,10 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/gabri/Documents/NetBeansProjects/ProjetoUnificado/src/model/dao/ComplexidadeDAO.java</file>
-            <file>file:/C:/Users/gabri/Documents/NetBeansProjects/ProjetoUnificado/src/model/bean/Complexidade.java</file>
+            <file>file:/C:/Users/gabri/Documents/NetBeansProjects/ProjetoUnificado/src/model/bean/Projeto.java</file>
+            <file>file:/C:/Users/gabri/Documents/NetBeansProjects/ProjetoUnificado/src/model/bean/Requisito.java</file>
+            <file>file:/C:/Users/gabri/Documents/NetBeansProjects/ProjetoUnificado/src/model/dao/RequisitoDAO.java</file>
+            <file>file:/C:/Users/gabri/Documents/NetBeansProjects/ProjetoUnificado/src/model/bean/Prioridade.java</file>
+            <file>file:/C:/Users/gabri/Documents/NetBeansProjects/ProjetoUnificado/src/model/dao/PrioridadeDAO.java</file>
             <file>file:/C:/Users/gabri/Documents/NetBeansProjects/ProjetoUnificado/src/model/dao/ProjetoDAO.java</file>
             <file>file:/C:/Users/gabri/Documents/NetBeansProjects/ProjetoUnificado/src/view/ViewRequisitos.java</file>
+            <file>file:/C:/Users/gabri/Documents/NetBeansProjects/ProjetoUnificado/src/view/ViewProjetos.java</file>
         </group>
     </open-files>
 </project-private>
